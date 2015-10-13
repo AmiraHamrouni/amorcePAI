@@ -12,7 +12,6 @@
     "body-parser": "^1.13.3",
     "express": "^4.13.3",
     "fs-extra": "^0.24.0",
-    "libxmljs": "^0.14.3",
     "multer": "^1.0.3",
     "request": "^2.61.0",
     "xmldom": "^0.1.19"

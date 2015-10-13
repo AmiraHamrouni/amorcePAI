@@ -8,7 +8,7 @@ var fs				= require('fs-extra')				// Access files
 , XMLSerializer		= require('xmldom').XMLSerializer	// DOM serializer (DOM -> string)
 , multer			= require('multer')					// plugin for transmiting file via HTTP
 , request			= require('request')				// send HTTP queries
-, libXML			= require("libxmljs")				// used to verify XML database with respect to a schema
+ , libXML			= null; //require("libxmljs")				// used to verify XML database with respect to a schema
 , xmlSerializer		= null
 , domParser			= null
 ;
