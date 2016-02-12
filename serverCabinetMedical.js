@@ -260,7 +260,7 @@ function init(port, applicationServerIP, applicationServerPort) {
 								if(err) {
 									res.writeHead(400);
 									res.write("Error on the optimization application server: ");
-									res.end( err );
+									res.end( );
 								} else	{//console.log("we got a body!");
 										 res.end( body );
 										}
