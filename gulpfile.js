@@ -12,10 +12,10 @@ var gulp				= require('gulp')
   , upath				= require("upath")
   ;
 
-var webpackEntries	=	[ './js/secretary.js'
+var webpackEntries	=	[ 'js/secretary.js'
 						]
-var filesToLint 	=	[ './js/**/*.js'
-						, './serverCabinetMedical.js'
+var filesToLint 	=	[ 'js/**/*.js'
+						, 'serverCabinetMedical.js'
 						];
 
 var problemFiles	=	filesToLint.slice();
@@ -33,20 +33,22 @@ function removeProblemFiles(fName) {
 
 function listLinted() {
 	return stream = through(function(file, encoding,callback) {
-		var fName = upath.normalizeSafe( file.cwd + '/' + file.eslint.filePath );
 		this.push(file);
-		var pos = problemFiles.indexOf(fName);
-		if( file.eslint.errorCount || file.eslint.warningCount) {
-			appendProblemFiles(fName);
-		} else {
-			removeProblemFiles(fName);
+		if(file.eslint) {
+			var fName = upath.normalizeSafe( file.cwd + '/' + file.eslint.filePath );
+			var pos = problemFiles.indexOf(fName);
+			if( file.eslint.errorCount || file.eslint.warningCount) {
+				appendProblemFiles(fName);
+			} else {
+				removeProblemFiles(fName);
+			}
 		}
 		callback();
 		}, function(callback) {callback();});
 }
 
 function linterPipeline() {
-	console.log( "linterPipeline", problemFiles );
+	// console.log( "linterPipeline", problemFiles );
     return gulp	.src ( problemFiles		)
 				.pipe( eslint() 		)
 				.pipe( listLinted() 	)
@@ -57,10 +59,11 @@ function linterPipeline() {
 gulp.task('lint', function () {return linterPipeline();});
 
 gulp.task('watch', ['lint'], function () {
-	console.log("Task lint")
+	// console.log("Task lint")
 	problemFiles.splice(0, filesToLint.length);
 	gulp.watch( filesToLint, function(event) {
 		var fName = upath.normalizeSafe( event.path );
+		// console.log( event );
 		if (event.type !== 'deleted') {
 	  			appendProblemFiles(fName);
 				return linterPipeline();
