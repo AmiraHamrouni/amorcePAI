@@ -101,14 +101,16 @@ gulp.task("webpack", function(callback) {
 	// CSS process
 	css.pipe( autoprefixer() )
 		// Split dev and dist
-		css	.pipe( gulp.dest('dev') );
-		css	.pipe( cleanCSS() )
+		css	.pipe( gulp.dest('dev') )
+			.pipe( cleanCSS() )
+			.pipe( gulp.dest('dist') )
 			.pipe( gzip() )
 			.pipe( gulp.dest('dist') );
 
 	// JS process
-	js	.pipe( gulp.dest('dev') );
-	js	.pipe( uglify() )
+	js	.pipe( gulp.dest('dev') )
+		.pipe( uglify() )
+		.pipe( gulp.dest('dist') )
 		.pipe( gzip() )
 		.pipe( gulp.dest('dist') );
 

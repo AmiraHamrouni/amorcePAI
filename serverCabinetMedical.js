@@ -8,6 +8,7 @@ var fs				= require('fs-extra')				// Access files
 , XMLSerializer		= require('xmldom').XMLSerializer	// DOM serializer (DOM -> string)
 , multer			= require('multer')					// plugin for transmiting file via HTTP
 , request			= require('request')				// send HTTP queries
+, staticGzip 		=  require('http-static-gzip-regexp')
 , libXML			= null //require("libxmljs")				// used to verify XML database with respect to a schema
 , xmlSerializer		= null
 , domParser			= null
@@ -75,12 +76,14 @@ function init(port, applicationServerIP, applicationServerPort) {
     
     // Initialize the HTTP server
     app	= express();
+	app.use(staticGzip(/^\/?dist\/.*(\.js|\.css)$/));
     app .use( express.static(__dirname) )						// Associate ressources for accessing local files
 	.use( bodyParser.urlencoded({ extended: false }) )		// Add a parser for urlencoded HTTP requests
 	.use( bodyParser.json() )								// Add a parser for json HTTP request
 	.use( multer({ dest: './uploads/'}).array() )					// Add a parser for file transmission
 	.listen(port) ;											// HTTP server listen to this TCP port
     
+
 	app.disable('etag');
     // Define HTTP ressource GET /
     app.get	( '/'
