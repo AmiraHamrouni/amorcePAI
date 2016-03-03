@@ -12,6 +12,7 @@
     "body-parser": "^1.13.3",
     "express": "^4.13.3",
     "fs-extra": "^0.24.0",
+    "http-static-gzip-regexp": "0.0.2",
     "multer": "^1.0.3",
     "request": "^2.61.0",
     "xmldom": "^0.1.19"
@@ -27,7 +28,6 @@
     "gulp-gzip": "^1.2.0",
     "gulp-uglify": "^1.5.3",
     "gulp-webpack": "^1.5.0",
-    "http-static-gzip-regexp": "0.0.2",
     "raw-loader": "^0.5.1",
     "style-loader": "^0.13.0",
     "through-gulp": "^0.5.0",
