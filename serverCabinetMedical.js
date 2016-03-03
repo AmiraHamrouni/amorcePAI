@@ -40,7 +40,7 @@ function getPatient(doc, number) {
     var L = doc.getElementsByTagName('patient')
     , num_node;
     for(var i=0; i<L.length; i++) {
-	num_node = L[i].getElementsByTagName('numéro')[0];
+	num_node = L[i].getElementsByTagName('numero')[0];
 	if(num_node.textContent === number) {return L[i];}
     }
     return null;
@@ -104,7 +104,7 @@ function init(port, applicationServerIP, applicationServerPort) {
 						   nurse = L_nurses[i];
 						   var option = docHTML.createElement('option');
 						   option.setAttribute( 'value', nurse.getAttribute('id') );
-						   option.textContent	= nurse.getElementsByTagName('prénom')[0].textContent
+						   option.textContent	= nurse.getElementsByTagName('prenom')[0].textContent
 												+ ' '
 												+ nurse.getElementsByTagName('nom')[0].textContent
 												;
@@ -171,13 +171,13 @@ function init(port, applicationServerIP, applicationServerPort) {
 					nom.appendChild( doc.createTextNode(req.body.patientName) );
 					newPatient.appendChild( nom );
 					// Forname
-					var prénom = doc.createElement('prénom');
-					prénom.appendChild( doc.createTextNode(req.body.patientForname) );
-					newPatient.appendChild( prénom );
+					var prenom = doc.createElement('prenom');
+					prenom.appendChild( doc.createTextNode(req.body.patientForname) );
+					newPatient.appendChild( prenom );
 					// Social security number
-					var numéro = doc.createElement('numéro');
-					numéro.appendChild( doc.createTextNode(req.body.patientNumber) );
-					newPatient.appendChild( numéro );
+					var numero = doc.createElement('numero');
+					numero.appendChild( doc.createTextNode(req.body.patientNumber) );
+					newPatient.appendChild( numero );
 					// Sex
 					var sexe = doc.createElement('sexe');
 					sexe.appendChild( doc.createTextNode(req.body.patientSex) );
@@ -193,10 +193,10 @@ function init(port, applicationServerIP, applicationServerPort) {
 					// Adress
 					var adresse = doc.createElement('adresse');
 					newPatient.appendChild( adresse );
-						var étage = doc.createElement('étage');
-						étage.appendChild( doc.createTextNode(req.body.patientFloor) );
-						adresse.appendChild( étage );
-						var numAdress = doc.createElement('numéro');
+						var etage = doc.createElement('etage');
+						etage.appendChild( doc.createTextNode(req.body.patientFloor) );
+						adresse.appendChild( etage );
+						var numAdress = doc.createElement('numero');
 						numAdress.appendChild( doc.createTextNode(req.body.patientFloor) );
 						adresse.appendChild( numAdress );
 						var rue = doc.createElement('rue');
@@ -228,7 +228,7 @@ function init(port, applicationServerIP, applicationServerPort) {
 			  var LP = doc.getElementsByTagName('patient')
 			  , node_num;
 			  for(var i=0; i<LP.length; i++) {
-			      node_num = LP[i].getElementsByTagName('numéro')[0];
+			      node_num = LP[i].getElementsByTagName('numero')[0];
 			      if( node_num.textContent === req.body.patient ) {
 				  if( req.body.infirmier === 'none' ) {req.body.infirmier = '';}
 				  LP[i].getElementsByTagName('visite')[0].setAttribute('intervenant', req.body.infirmier);
