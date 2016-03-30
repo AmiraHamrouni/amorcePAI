@@ -1,8 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<cabinet xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
-		 xmlns="http://www.ujf-grenoble.fr/l3miage/cabinet" 
-		 xsi:schemaLocation="http://www.ujf-grenoble.fr/l3miage/cabinet ../schema/cabinet.xsd"
-		 >
+<cabinet xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.ujf-grenoble.fr/l3miage/cabinet" xsi:schemaLocation="http://www.ujf-grenoble.fr/l3miage/cabinet ../schema/cabinet.xsd">
 	<nom>Soins à Grenoble</nom>
 	<adresse>
 		<numero>60</numero>
@@ -129,7 +126,7 @@
                 Le jeune Xavier est en cours de desensibilation alergique.
                 Il doit recevoir tous les jours, l'injection de plusieurs allergenes, etc.
                 -->
-			<visite date="2014-12-08" intervenant="001">
+			<visite date="2014-12-08" intervenant="002">
 				<acte id="111"/>               
 			</visite>
 
@@ -148,10 +145,10 @@
 				<ville>Montbonnot-Saint-Martin</ville>
 				<codePostal>38330</codePostal>
 			</adresse>
-			<visite date="2014-12-08" intervenant="001">
+			<visite date="2014-12-08" intervenant="">
 				<acte id="401"/>
 			</visite>
 
 		</patient>
-	</patients>
+	<patient><nom>$p$</nom><prenom></prenom><numero></numero><sexe></sexe><naissance></naissance><visite date="2014-12-08"/><adresse><etage></etage><numero></numero><rue></rue><ville></ville><codePostal></codePostal></adresse></patient></patients>
 </cabinet>

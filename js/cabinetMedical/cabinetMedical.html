@@ -1,0 +1,92 @@
+
+<h1> {{$ctrl.titre}}</h1>  
+
+
+Les infirmiers:
+
+<infirmiere data="inf"  ng-repeat="inf in $ctrl.data.infirmies"> </infirmiere>
+
+<br/>
+<br/>
+
+Les patients restants:
+
+<patient data="pat"  ng-repeat="pat in $ctrl.data.patientsNomAffectes"> </patient>
+
+ <br/>
+			<section id="PatientsRestants">
+		
+				<button onclick="myShowFunction()"><span>Ajouter<br/>nouveau patient</span></button>
+			</section>
+			
+			<section id="addPatient" class="">
+				<section>
+				<h3>Ajouter un nouveau patient</h3>
+				<form id="formAddPatient" action="/addPatient" method="POST">
+					<section class="name">
+						<label for="patientName">Nom : </label>
+						<input type="text" name="patientName" id="patientName" />
+					</section>
+					
+					<section class="forname">
+						<label for="patientForname">Prénom : </label>
+						<input type="text" name="patientForname" id="patientForname" />
+					</section>
+					
+					<section class="sex">
+						<label for="patientSex">Sexe : </label>
+						<input type="checkbox" name="patientSex" id="patientSex" value="male" /> male
+						<input type="checkbox" name="patientSex" id="patientSex" value="female" /> female <br />
+					</section>
+					
+					<section class="numero">
+						<label for="patientNumber">Numéro : </label>
+						<input type="text" name="patientNumber" id="patientNumber" />
+					</section>
+					
+					<section class="birthday">
+						<label for="patientBirthday">Date de naissance : </label>
+						<input type="date" name="patientBirthday" id="patientBirthday" />
+					</section>
+					
+					<section class="adress">
+						<section class="patientFloor">
+							<label for="patientFloor">Etage : </label>
+							<input type="text" name="patientFloor" id="patientFloor" />
+						</section>
+						<section class="street">
+							<label for="patientStreet">Rue : </label>
+							<input type="text" name="patientStreet" id="patientStreet" />
+						</section>
+						<section class="postalCode">
+							<label for="patientPostalCode">Code postal : </label>
+							<input type="text" name="patientPostalCode" id="patientPostalCode" />
+						</section>
+						<section class="city">
+							<label for="patientCity">Ville : </label>
+							<input type="text" name="patientCity" id="patientCity" />
+						</section>
+						
+						<section id="newPatientMap"></section>
+						
+						
+					</section>
+					
+					<input type="reset" id="btAddPatient" value="Supprimer saisie" /> 
+
+					<button id="btAddPatient">Ajouter ce patient</button> 
+				</form>
+				
+				
+
+				</section>
+			</section>
+			<table id="Affectations">
+				<thead>
+					<td>Infirmière</td>
+					<td>Tournée</td>
+				</thead>
+				<tbody>
+				</tbody>
+			</table>
+			<section id="map"></section>

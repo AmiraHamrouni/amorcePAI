@@ -1,0 +1,7 @@
+section.liste > *:nth-child(odd) {
+	background	: lightgrey;
+}
+
+section.liste > *:nth-child(even) {
+	background	: white;
+}

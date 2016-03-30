@@ -1,0 +1,20 @@
+<!doctype html>
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>La liste des choses à faire</title>
+		<link rel="stylesheet" type="text/css" href="dev/mainV1.css"/>
+		<script src="dev/mainV1.js"></script>
+	</head>
+	<body ng-app="bshm" bshm-root>
+		<md-content>
+			<md-toolbar>
+				<h1>Projet de gestion des choses à faire : version Angular</h1>
+			</md-toolbar>
+			<bshm-liste nf="ctrl.listeChoses"></bshm-liste>
+			<hr/>
+			<bshm-liste nf="ctrl.listeChoses"></bshm-liste>
+		</md-content>
+	</body>
+</html>

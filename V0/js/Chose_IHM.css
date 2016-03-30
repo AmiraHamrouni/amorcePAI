@@ -1,0 +1,13 @@
+section.Chose:hover {
+	background		: lightyellow; 
+}
+
+
+section.Chose:hover > input.remove {
+	display		: initial; 
+	transform	: scale(2);
+}
+
+section.Chose > input.remove {
+	display 	: none; 
+}
