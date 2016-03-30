@@ -1,0 +1,12 @@
+<form novalidate layout="column" ng-submit="$ctrl.Ajouter( $ctrl.texteChose )">
+	<md-input-container flex>
+		<label>Entrer une nouvelle chose à faire</label>
+		<input ng-model="$ctrl.texteChose" type="text">
+	</md-input-container>
+</form>
+{{$ctrl.choses.length}} choses
+<md-list layout="column">
+	<md-list-item ng-repeat="chose in $ctrl.choses" flex>
+		<bshm-chose nf="chose" flex></bshm-chose>
+	</md-list-item>
+</md-list>
